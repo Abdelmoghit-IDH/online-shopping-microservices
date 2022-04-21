@@ -39,15 +39,15 @@ git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
 cd online-shopping-microservices
 ```
 
-3. **Create a K8s cluster.**
+2. **Create a K8s cluster.**
 
-4. **Deploy the app to the cluster.**
+3. **Deploy the app to the cluster.**
 
 ```
 kubectl apply -f ./k8s/
 ```
 
-5. **Wait for the Pods to be ready.**
+4. **Wait for the Pods to be ready.**
 
 ```
 kubectl get pods
@@ -71,7 +71,7 @@ redis-cart-5f59546cdd-5jnqf              1/1     Running   0          2m58s
 shippingservice-6ccc89f8fd-v686r         1/1     Running   0          2m58s
 ```
 
-7. **Access the web frontend in a browser** using the frontend's `EXTERNAL_IP`.
+5. **Access the web frontend in a browser** using the frontend's `EXTERNAL_IP`.
 
 ```
 kubectl get service frontend-external | awk '{print $4}'
@@ -85,13 +85,6 @@ EXTERNAL-IP
 ```
 
 **Note**- you may see `<pending>` while GCP provisions the load balancer. If this happens, wait a few minutes and re-run the command.
-
-8. [Optional] **Clean up**:
-
-```
-gcloud container clusters delete onlineboutique \
-    --project=${PROJECT_ID} --zone=${ZONE}
-```
 
 ## Other Deployment Options
 
@@ -151,20 +144,3 @@ Find **Protocol Buffers Descriptions** at the [`./pb` directory](./pb).
 
 If you would like to contribute features or fixes to this app, see the [Development Guide](/docs/development-guide.md) on how to build this demo locally.
 
-## Demos featuring Online Boutique
-
-- [Take the first step toward SRE with Cloud Operations Sandbox](https://cloud.google.com/blog/products/operations/on-the-road-to-sre-with-cloud-operations-sandbox)
-- [Deploying the Online Boutique sample application on Anthos Service Mesh](https://cloud.google.com/service-mesh/docs/onlineboutique-install-kpt)
-- [Anthos Service Mesh Workshop: Lab Guide](https://codelabs.developers.google.com/codelabs/anthos-service-mesh-workshop)
-- [KubeCon EU 2019 - Reinventing Networking: A Deep Dive into Istio's Multicluster Gateways - Steve Dake, Independent](https://youtu.be/-t2BfT59zJA?t=982)
-- Google Cloud Next'18 SF
-  - [Day 1 Keynote](https://youtu.be/vJ9OaAqfxo4?t=2416) showing GKE On-Prem
-  - [Day 3 Keynote](https://youtu.be/JQPOPV_VH5w?t=815) showing Stackdriver
-    APM (Tracing, Code Search, Profiler, Google Cloud Build)
-  - [Introduction to Service Management with Istio](https://www.youtube.com/watch?v=wCJrdKdD6UM&feature=youtu.be&t=586)
-- [Google Cloud Next'18 London – Keynote](https://youtu.be/nIq2pkNcfEI?t=3071)
-  showing Stackdriver Incident Response Management
-
----
-
-This is not an official Google project.
