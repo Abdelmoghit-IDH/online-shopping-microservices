@@ -18,9 +18,6 @@ Kubernetes Engine. It’s **easy to deploy with little to no configuration**.
 
 If you’re using this demo, please **★Star** this repository to show your interest!
 
-> 👓**Note to Googlers:** Please fill out the form at
-> [go/microservices-demo](http://go/microservices-demo) if you are using this
-> application.
 
 Looking for the old Hipster Shop frontend interface? Use the [manifests](https://github.com/GoogleCloudPlatform/microservices-demo/tree/v0.1.5/kubernetes-manifests) in release [v0.1.5](https://github.com/GoogleCloudPlatform/microservices-demo/releases/v0.1.5).
 
@@ -35,38 +32,19 @@ Looking for the old Hipster Shop frontend interface? Use the [manifests](https:/
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/GoogleCloudPlatform/microservices-demo&cloudshell_tutorial=README.md)
 
-1. **[Create a Google Cloud Platform project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)** or use an existing project. Set the `PROJECT_ID` environment variable and ensure the Google Kubernetes Engine and Cloud Operations APIs are enabled.
-
-```
-PROJECT_ID="<your-project-id>"
-gcloud services enable container.googleapis.com --project ${PROJECT_ID}
-gcloud services enable monitoring.googleapis.com \
-    cloudtrace.googleapis.com \
-    clouddebugger.googleapis.com \
-    cloudprofiler.googleapis.com \
-    --project ${PROJECT_ID}
-```
-
-2. **Clone this repository.**
+1. **Clone this repository.**
 
 ```
 git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
-cd microservices-demo
+cd online-shopping-microservices
 ```
 
-3. **Create a GKE cluster.**
+3. **Create a K8s cluster.**
+
+4. **Deploy the app to the cluster.**
 
 ```
-ZONE=us-central1-b
-gcloud container clusters create onlineboutique \
-    --project=${PROJECT_ID} --zone=${ZONE} \
-    --machine-type=e2-standard-2 --num-nodes=4
-```
-
-4. **Deploy the sample app to the cluster.**
-
-```
-kubectl apply -f ./release/kubernetes-manifests.yaml
+kubectl apply -f ./k8s/
 ```
 
 5. **Wait for the Pods to be ready.**
