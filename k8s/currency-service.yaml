@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: service
-        image: gcr.io/google-samples/microservices-demo/currencyservice
+        image: gcr.io/google-samples/microservices-demo/currencyservice:v0.2.3
         ports:
         - containerPort: 7000 
-      env:
-        - name: PORT
-          value: "7000"
+        env:
+          - name: PORT
+            value: "7000"
 ---
 apiVersion: v1
 kind: Service

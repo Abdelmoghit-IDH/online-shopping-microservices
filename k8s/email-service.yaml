@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: service
-        image: gcr.io/google-samples/microservices-demo/emailservice
+        image: gcr.io/google-samples/microservices-demo/emailservice:v0.2.3
         ports:
         - containerPort: 8080 
-      env:
-        - name: PORT
-          value: "8080"
+        env:
+          - name: PORT
+            value: "8080"
 
 ---
 apiVersion: v1
